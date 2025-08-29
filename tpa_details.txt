@@ -1,0 +1,196 @@
+This file documents the `visit_map` and other specific nuances for each TPA scraper.
+
+---
+### Aafiya (`aafiya.py`)
+- **Visit Map**: None.
+- **Nuances**:
+    - Can require a `referral_code` if a referral policy is detected for the patient.
+
+---
+### Adnic (`adnic.py`)
+- **Visit Map**: None.
+- **Nuances**:
+    - Uses Redis locks (`adnic_scraper_{username}_bypass`) to manage credentials and prevent concurrent sessions with the same username.
+    - Downloads the eligibility details by taking a full-page screenshot and converting it to a PDF using `img2pdf`.
+    - Includes links to static, pre-saved documents for claim forms (Direct Billing and Reimbursement).
+
+---
+### Al Buhariah (`al_buhariah.py`)
+- **Visit Map**: None.
+- **Nuances**:
+    - Downloads two separate documents:
+        1. A PDF of the main eligibility page.
+        2. A second PDF (the member card) downloaded from a popup window that appears after a button click.
+    - It extracts text from the downloaded member card PDF using `PyPDF2`.
+
+---
+### Almadallah (`almadallah.py`)
+- **Visit Map**:
+    ```python
+    visit_map = {
+        "OUTPATIENT": "OP",
+        "INPATIENT": "IP/Daycase",
+        "MATERNITY": "Maternity",
+        "DENTAL": "Dental",
+        "OPTICAL": "Optical",
+        "PSYCHIATRY": "Psychiatry",
+    }
+    ```
+- **Nuances**:
+    - The scraper can search by Emirates ID or by Card Number + Name. The logic branches based on whether a `name` is provided.
+    - It downloads a referral document from a popup window and also generates a PDF of the main eligibility page.
+
+---
+### Axa (`axa.py`)
+- **Visit Map**: None.
+- **Nuances**:
+    - Requires solving a CAPTCHA during login.
+    - For searches by `CARDNUMBER`, the card number must be provided in a specific 7-part format, separated by slashes (e.g., `part1/part2/.../part7`).
+    - Downloads a "Benefit Summary" document as a PDF.
+
+---
+### Daman (`daman.py`, `daman copy.py`, `daman copy 2.py`)
+- **Visit Map**:
+    ```python
+    VISIT_MAP = {
+        "OUTPATIENT": "Consultation",
+        "INPATIENT": "Inpatient",
+        "TELEHEALTH": "Tele-Consultation/Telemedicine",
+        "FREE_FOLLOWUP": "Free Follow-up (not reimbursable by the Payer)",
+        "DIAGNOSTIC": "Diagnostic Testing",
+        "PHYSIOTHERAPY": "Physiotherapy",
+        "DENTAL_SERVICES": "Dental Services",
+        "PHARMACY": "Pharmacy",
+        "HOMECARE": "Homecare",
+        "REHABILITATION": "Rehabilitation",
+        "DAYCARE": "Daycare",
+        "ULTRASOUND": "Ultrasound",
+        "OTHER_OP": "Other OP Services",
+    }
+    ```
+- **Nuances**:
+    - This is a highly complex scraper with two main modes of operation.
+    - **Primary Mode (API Call)**: It first tries to get a Cloudflare Turnstile token from the page. If successful, it makes a direct API call to the Daman endpoint to get eligibility, which is much faster. It handles duplicate requests by fetching the details of the existing request.
+    - **Fallback Mode (UI Automation)**: If the API call fails, it falls back to full UI automation, filling out the form fields for Payer, Clinician, Member Details, and Service Category.
+    - It requires a `doctor_name` (clinician license) and can optionally handle a `pod_id` (Point of Dispensing ID).
+    - It has extensive mappings for different service categories and consultation sub-categories.
+
+---
+### Ecare (`ecare.py`)
+- **Visit Map**: None.
+- **Nuances**:
+    - Downloads a main eligibility document as a PDF.
+    - If a `doctor_name` is provided, it attempts to fill out a claim form.
+    - It checks if the claim is "New" or a follow-up. If it's a follow-up, it warns the user and does not generate a new claim form.
+    - For new claims, it generates a **link** to the claim form PDF rather than downloading the file directly.
+
+---
+### Eclaim (`eclaim.py`)
+- **Visit Map**: None.
+- **Nuances**:
+    - This scraper does not require login. It uses a public search page (`https://www.eclaimlink.ae/misc/SearchMember.aspx`) to find TPA details for a given Emirates ID.
+
+---
+### FMC (`fmc.py`)
+- **Visit Map**:
+    ```python
+    visit_map = {
+        "OUTPATIENT": "O",
+        "INPATIENT": "I",
+    }
+    ```
+- **Nuances**:
+    - The portal uses iframes, so the scraper has to switch into the correct frame context to interact with elements.
+    - It specifically handles a "Greetings from FMC Network UAE" popup, which may indicate a follow-up visit.
+    - It requires a `tenant_id` which is mapped to a full legal name (e.g., "kims" -> "KIMS MEDICAL CENTRE LLC").
+
+---
+### Inayah (`inayah.py`)
+- **Visit Map**: None.
+- **Nuances**:
+    - Requires solving a CAPTCHA during login.
+    - Downloads the eligibility details as a landscape-oriented PDF.
+
+---
+### Lifeline (`lifeline.py`)
+- **Visit Map**: None.
+- **Nuances**:
+    - Downloads the eligibility details as a landscape-oriented PDF.
+
+---
+### Mednet (`mednet.py`)
+- **Visit Map**: None.
+- **Nuances**:
+    - Uses Redis locks to manage credentials and prevent concurrent sessions.
+    - Can handle an `is_emergency` visit type by checking a specific checkbox.
+    - Downloads two separate PDFs: one for the eligibility form and another for the claim form.
+
+---
+### Metlife (`metlife.py`)
+- **Visit Map**: None.
+- **Nuances**:
+    - The login process is two-factor. It requires fetching a 6-digit One-Time Password (OTP) from a designated Gmail account (`gmail_manager.py`).
+
+---
+### MSH (`msh.py`)
+- **Visit Map**: None.
+- **Nuances**:
+    - The login page is protected by reCAPTCHA.
+    - The primary output is a downloaded PDF of the member's insurance card. The scraper then extracts the text from this PDF to return as the eligibility details.
+    - It requires a hardcoded first name ("MOHAMMED") to perform the search.
+
+---
+### NAS / Neuron (`nas.py`, `neuron.py`, `nas_auth.py`)
+- **Visit Map**:
+    ```python
+    visit_map = {
+        "OUTPATIENT": "OutPatient",
+        "INPATIENT": "InPatient",
+        "DENTAL": "Dental",
+        "OPTICAL": "Optical",
+        "MATERNITY": "Maternity",
+        "PSYCHIATRY": "Psychiatry",
+        "WELLNESS": "Wellness",
+    }
+    ```
+- **Nuances**:
+    - This is the most complex scraper, sharing authentication logic between NAS and Neuron.
+    - **Authentication (`nas_auth.py`)**: It uses a sophisticated session management system with Redis. For OTP-enabled users, it maintains multiple session "slots" and uses Redis locks to allow concurrent scraping without requiring a new OTP for every run. It fetches OTPs from a designated Gmail account.
+    - **Captcha**: The eligibility form requires solving a CAPTCHA.
+    - **Maternity**: If the visit type is "MATERNITY", it handles additional form fields.
+    - **PDFs**: It downloads multiple PDF documents: the main page, a details modal, approval requirements, and a claim form.
+
+---
+### NGI (`ngi.py`)
+- **Visit Map**:
+    ```python
+    visit_map = {
+        "OUTPATIENT": "O - Out Patient",
+        "INPATIENT": "I - In Patient",
+        "DAYCASE": "D - Daycase",
+    }
+    ```
+- **Nuances**:
+    - The login process is protected by a CAPTCHA.
+    - After the CAPTCHA, it may also require an OTP, which is fetched from a designated Gmail account.
+
+---
+### Oman (`oman.py`)
+- **Visit Map**: None.
+- **Nuances**:
+    - Uses Redis locks to prevent concurrent sessions.
+    - The eligibility check process is asynchronous. The scraper submits a request and then must poll the page, waiting for the transaction status to change from "Pending" to a final state. This can take several minutes.
+
+---
+### Riyati (`riyati.py`)
+- **Visit Map**: None.
+- **Nuances**:
+    - This is **not a traditional web scraper**. It performs a UI login solely to obtain a bearer token from the browser's local storage.
+    - After getting the token, it uses the `requests` library to make direct API calls to Riyati's backend to fetch patient data, bypassing the UI entirely for the eligibility check.
+
+---
+### Saico (`saico.py`)
+- **Visit Map**: None.
+- **Nuances**:
+    - Downloads the eligibility details by taking a full-page screenshot and converting it to a PDF.
+    - It also downloads a "UCAF" (Unified Claim and Approval Form) PDF.

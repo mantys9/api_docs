@@ -1,0 +1,996 @@
+Case to handle
+When the Emirates ID, has an entry in DHPO, and has a valid insurance in that TPA,
+we change the search_all is turned off and it directly returns the value from that ID.
+
+That case will need to be handled in the astermate system.
+
+Response from the entry with incident
+{
+"id": "b7a3e013-6758-4039-a39b-7e0bfa9f2e32",
+"request_dump": {
+"phone": "971-5",
+"id_type": "EMIRATESID",
+"id_value": "784-2025-2801771-2",
+"tpa_name": "INS010",
+"payerName": "",
+"doctorName": "DHA-P-0133260",
+"extra_args": {
+"title": "",
+"value": ""
+},
+"visit_type": "OUTPATIENT"
+},
+"is_search_all": false,
+"created_by_user_id": null,
+"clinic_id": "1a405a0a-f7a1-4ecc-86fb-ce84151ccc5b",
+"updated_at": "2025-08-26T05:23:46.155401",
+"interim_results": {
+"tpa_name": "INS010",
+
+Case to handle
+
+1
+
+"timestamp": "2025-08-26T05:23:30.583122+00:00",
+"screenshot_key": "https://s3.me-central-1.amazonaws.com/hrcm-bucke
+t-uae/INS010/784-2025-2801771-2_2025-08-26_05-23-27.png?X-Amz-Algorit
+hm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUCIJUPQ35ZV226UV%2
+F20250826%2Fme-central-1%2Fs3%2Faws4_request&X-Amz-Date=202508
+26T052327Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-AmzSignature=4067a06969d98b7709870b9029e39d1043818aa6314ebc3eb1cfc5
+07d76a8dcf",
+"referral_documents": [
+{
+"id": "member_eligibility_document",
+"tag": "Member Eligibility Document",
+"s3_url": "https://s3.me-central-1.amazonaws.com/hrcm-bucket-ua
+e/axa/referral/784-2025-2801771-2/26/08/2025%2009%3A23%20AM%20G
+ST.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUC
+IJUPQ35ZV226UV%2F20250826%2Fme-central-1%2Fs3%2Faws4_request&
+X-Amz-Date=20250826T052326Z&X-Amz-Expires=604800&X-Amz-SignedH
+eaders=host&X-Amz-Signature=b8459fd01f2335002fcd15088fadbeec71f071
+6dd6eaebb38a7bb08de234a967"
+}
+],
+"is_eligible_details": {
+"reason": "The insurance card shows valid start and expiry dates cove
+ring today's date, with all required member and policy details present and no
+disqualifying conditions mentioned.",
+"is_eligible": true
+}
+},
+"task_id": "b1a35a89-f198-4429-a21d-65d0b0862a43",
+"status": "PROCESS_COMPLETE",
+"search_all_status": null,
+"tenant_id": "mantys",
+"created_at": "2025-08-26T05:23:07.306064",
+"eligibility_result": {
+"search_id": "784-2025-2801771-2",
+"data_dump": {
+
+Case to handle
+
+2
+
+"tpa": "INS010",
+"data": {
+"payer_id": "INS010",
+"is_eligible": true,
+"job_task_id": "b1a35a89-f198-4429-a21d-65d0b0862a43",
+"patient_info": {
+"patient_id_info": {
+"dha_id": "I010-000-122462579-02",
+"policy_no": "13/XP/53143/0",
+"membership_no": "25/S/1"
+},
+"policy_holder_dob": "2025-02-12",
+"policy_holder_name": "Ryan Res Levin Levin Sibi",
+"patient_emirates_id": "784-2025-2801771-2",
+"policy_holder_phone": null,
+"policy_holder_gender": null,
+"policy_primary_member_id": "13/XP/53143/0/25/S/1",
+"policy_holder_relationship": null,
+"policy_holder_date_of_birth": "2025-02-12",
+"policy_primary_dha_member_id": "I010-000-122462579-02"
+},
+"copay_analysis": {
+"copay_details": [
+{
+"remarks": "Citation: Pre-Approval required for OP equal to or
+exceeding AED 1,000 / QAR 1,000 / BD 100 / OMR 100 / KWD 80 / SAR 1,000
+[excluding consultation]; AND for the services detailed. | \n\n Includes materni
+ty initial consultation pre-approval requirement.",
+"visit_type": "Outpatient",
+"copay_amount": null,
+"visit_setting": "Outpatient",
+"copay_currency": "AED",
+"copay_max_scope": "per consult",
+"copay_max_amount": 50,
+"copay_percentage": "20.0",
+"coinsurance_percentage": null
+
+Case to handle
+
+3
+
+},
+{
+"remarks": "Citation: MAT 10% ON ALL OP;DENTAL DIRECT B
+ILLING ONLY | \n\n Dental services direct billing only.",
+"visit_type": "Dental",
+"copay_amount": null,
+"visit_setting": "Outpatient",
+"copay_currency": "AED",
+"copay_max_scope": null,
+"copay_max_amount": null,
+"copay_percentage": "10.0",
+"coinsurance_percentage": null
+},
+{
+"remarks": "Citation: MAT 10% ON ALL OP | \n\n Maternity co
+nsultation only requires pre-approval initially. Inside Abu Dhabi, OP does not r
+equire approval.",
+"visit_type": "Maternity",
+"copay_amount": null,
+"visit_setting": "Outpatient",
+"copay_currency": "AED",
+"copay_max_scope": null,
+"copay_max_amount": null,
+"copay_percentage": "10.0",
+"coinsurance_percentage": null
+},
+{
+"remarks": "CT, PET Scans, MRI require pre-approval.",
+"visit_type": "Radiology",
+"copay_amount": null,
+"visit_setting": "Outpatient",
+"copay_currency": null,
+"copay_max_scope": null,
+"copay_max_amount": null,
+"copay_percentage": "Covered",
+"deductible_scope": null,
+
+Case to handle
+
+4
+
+"deductible_amount": null,
+"deductible_currency": null,
+"coinsurance_percentage": null
+},
+{
+"remarks": "Some laboratory tests like Vitamin D test require
+pre-approval.",
+"visit_type": "Laboratory",
+"copay_amount": null,
+"visit_setting": "Outpatient",
+"copay_currency": null,
+"copay_max_scope": null,
+"copay_max_amount": null,
+"copay_percentage": "Covered",
+"deductible_scope": null,
+"deductible_amount": null,
+"deductible_currency": null,
+"coinsurance_percentage": null
+},
+{
+"remarks": "Provider Terms: Pharmacy: Providers with e-Rx/
+PBM should use PBM | Vaccination and psychiatric pharmacy treatment requir
+e PBM.",
+"visit_type": "Pharmacy",
+"copay_amount": null,
+"visit_setting": "Outpatient",
+"copay_currency": null,
+"copay_max_scope": null,
+"copay_max_amount": null,
+"copay_percentage": "Covered",
+"deductible_scope": null,
+"deductible_amount": null,
+"deductible_currency": null,
+"coinsurance_percentage": null
+},
+{
+
+Case to handle
+
+5
+
+"remarks": "Optical services require pre-approval.",
+"visit_type": "Optical",
+"copay_amount": null,
+"visit_setting": "Outpatient",
+"copay_currency": null,
+"copay_max_scope": null,
+"copay_max_amount": null,
+"copay_percentage": "Covered",
+"deductible_scope": null,
+"deductible_amount": null,
+"deductible_currency": null,
+"coinsurance_percentage": null
+},
+{
+"remarks": "Physiotherapy requires pre-approval.",
+"visit_type": "Physiotherapy",
+"copay_amount": null,
+"visit_setting": "Outpatient",
+"copay_currency": null,
+"copay_max_scope": null,
+"copay_max_amount": null,
+"copay_percentage": "Covered",
+"deductible_scope": null,
+"deductible_amount": null,
+"deductible_currency": null,
+"coinsurance_percentage": null
+}
+],
+"waiting_period": "Not Specified",
+"special_remarks": [
+"Provider Terms: Pharmacy: Providers with e-Rx/PBM should us
+e PBM",
+"Pre-approval required for aggregate net amount 1000.0 AED or
+above (net amount excluding consultation)",
+"Pre-approval required for: MRI, CT, PET Scans, Day care proce
+dures, Speech therapy, Occupational therapy, Vitamin D test, Mammograms, I
+
+Case to handle
+
+6
+
+ntraarticular injections, EEG, EMG, NCS, Echocardiogram, TMT, Holter Monitor
+ing, Influenza A & B, Physiotherapy, Chiropractic treatment, Psychiatric treatm
+ent including consultation and pharmacy, Alternative Therapy, Health screenin
+g, Work related injuries, Road traffic accident, Professional/dangerous sports,
+Chronic conditions for XP/XI policies",
+"Pre-approval within 4 hours for in-patient",
+"All in-patient, day care and invasive procedures require pre-ap
+proval; also including but not limited to: medical admissions, surgeries, chemo
+therapy and radiotherapy, dialysis, etc",
+"Within 1 hour for out-patient"
+],
+"new_version_of_copay_analysis": {
+"benefits": [
+{
+"limits": null,
+"remarks": "Includes maternity initial consultation pre-appr
+oval requirement.",
+"conditions": {
+"referral_required": null,
+"referral_exceptions": null,
+"network_restrictions": null,
+"pre_approval_required": "Conditional",
+"provider_specific_terms": null,
+"pre_approval_threshold_scope": "net amount excluding
+consultation",
+"pre_approval_threshold_amount": 1000,
+"pre_approval_specific_services": [
+"MRI",
+"CT",
+"PET Scans",
+"Day care procedures",
+"Speech therapy",
+"Occupational therapy",
+"Vitamin D test",
+"Mammograms",
+"Intraarticular injections",
+
+Case to handle
+
+7
+
+"EEG",
+"EMG",
+"NCS",
+"Echocardiogram",
+"TMT",
+"Holter Monitoring",
+"Influenza A & B",
+"Physiotherapy",
+"Chiropractic treatment",
+"Psychiatric treatment including consultation and phar
+macy",
+"Alternative Therapy",
+"Health screening",
+"Work related injuries",
+"Road traffic accident",
+"Professional/dangerous sports",
+"Chronic conditions for XP/XI policies"
+],
+"pre_approval_threshold_currency": "AED"
+},
+"cost_sharing": [
+{
+"context": "General",
+"citation": "Pre-Approval required for OP equal to or e
+xceeding AED 1,000 / QAR 1,000 / BD 100 / OMR 100 / KWD 80 / SAR 1,000 [e
+xcluding consultation]; AND for the services detailed.",
+"visit_type": "Outpatient",
+"copay_amount": null,
+"visit_setting": "Outpatient",
+"copay_currency": "AED",
+"copay_percentage": 20,
+"copay_maximum_scope": "per consult",
+"copay_maximum_amount": 50,
+"coinsurance_percentage": null
+}
+],
+
+Case to handle
+
+8
+
+"coverage_status": "Covered",
+"service_category_original": null,
+"service_category_standardized": "Outpatient"
+},
+{
+"limits": null,
+"remarks": "Dental services direct billing only.",
+"conditions": null,
+"cost_sharing": [
+{
+"context": "General",
+"citation": "MAT 10% ON ALL OP;DENTAL DIRECT BIL
+LING ONLY",
+"visit_type": "Outpatient",
+"copay_amount": null,
+"visit_setting": "Outpatient",
+"copay_currency": "AED",
+"copay_percentage": 10,
+"copay_maximum_scope": null,
+"copay_maximum_amount": null,
+"coinsurance_percentage": null
+}
+],
+"coverage_status": "Covered",
+"service_category_original": null,
+"service_category_standardized": "Dental"
+},
+{
+"limits": null,
+"remarks": "Maternity consultation only requires pre-appro
+val initially. Inside Abu Dhabi, OP does not require approval.",
+"conditions": null,
+"cost_sharing": [
+{
+"context": "General",
+"citation": "MAT 10% ON ALL OP",
+
+Case to handle
+
+9
+
+"visit_type": "Maternity",
+"copay_amount": null,
+"visit_setting": "Outpatient",
+"copay_currency": "AED",
+"copay_percentage": 10,
+"copay_maximum_scope": null,
+"copay_maximum_amount": null,
+"coinsurance_percentage": null
+}
+],
+"coverage_status": "Covered",
+"service_category_original": null,
+"service_category_standardized": "Maternity"
+},
+{
+"limits": null,
+"remarks": "CT, PET Scans, MRI require pre-approval.",
+"conditions": null,
+"cost_sharing": [],
+"coverage_status": "Covered",
+"service_category_original": null,
+"service_category_standardized": "Radiology"
+},
+{
+"limits": null,
+"remarks": "Some laboratory tests like Vitamin D test requir
+e pre-approval.",
+"conditions": null,
+"cost_sharing": [],
+"coverage_status": "Covered",
+"service_category_original": null,
+"service_category_standardized": "Laboratory"
+},
+{
+"limits": null,
+"remarks": "Vaccination and psychiatric pharmacy treatme
+
+Case to handle
+
+10
+
+nt require PBM.",
+"conditions": {
+"referral_required": null,
+"referral_exceptions": null,
+"network_restrictions": null,
+"pre_approval_required": "Conditional",
+"provider_specific_terms": "Pharmacy: Providers with eRx/PBM should use PBM",
+"pre_approval_threshold_scope": null,
+"pre_approval_threshold_amount": null,
+"pre_approval_specific_services": [],
+"pre_approval_threshold_currency": null
+},
+"cost_sharing": [],
+"coverage_status": "Covered",
+"service_category_original": null,
+"service_category_standardized": "Pharmacy"
+},
+{
+"limits": null,
+"remarks": "Optical services require pre-approval.",
+"conditions": null,
+"cost_sharing": [],
+"coverage_status": "Covered",
+"service_category_original": null,
+"service_category_standardized": "Optical"
+},
+{
+"limits": null,
+"remarks": "Physiotherapy requires pre-approval.",
+"conditions": null,
+"cost_sharing": [],
+"coverage_status": "Covered",
+"service_category_original": null,
+"service_category_standardized": "Physiotherapy"
+}
+
+Case to handle
+
+11
+
+],
+"policy_info": {
+"waiting_period": "Not Specified",
+"policy_period_end": {
+"DD": 17,
+"MM": 4,
+"YYYY": 2026
+},
+"policy_jurisdiction": "DHA",
+"policy_period_start": {
+"DD": 18,
+"MM": 4,
+"YYYY": 2025
+},
+"beneficiary_start_date": null,
+"waiting_period_citation": null
+},
+"general_remarks": [
+"All in-patient, day care and invasive procedures require preapproval; also including but not limited to: medical admissions, surgeries, che
+motherapy and radiotherapy, dialysis, etc",
+"Pre-approval within 4 hours for in-patient",
+"Within 1 hour for out-patient"
+],
+"abbreviations_defined": [
+{
+"definition": "Clinics/ Medical center",
+"abbreviation": "CLINIC"
+},
+{
+"definition": "Including",
+"abbreviation": "INCL"
+},
+{
+"definition": "Optical",
+"abbreviation": "OPT"
+
+Case to handle
+
+12
+
+},
+{
+"definition": "Co-insurance",
+"abbreviation": "COINS/CO-INS"
+},
+{
+"definition": "In Patient",
+"abbreviation": "IP"
+},
+{
+"definition": "Other",
+"abbreviation": "OTH"
+},
+{
+"definition": "Consultation",
+"abbreviation": "CONS/CONSULT"
+},
+{
+"definition": "Laboratory",
+"abbreviation": "LAB"
+},
+{
+"definition": "Pharmacy",
+"abbreviation": "PH"
+},
+{
+"definition": "Dental",
+"abbreviation": "DENT"
+},
+{
+"definition": "Maternity",
+"abbreviation": "MAT"
+},
+{
+"definition": "Physiotherapy",
+"abbreviation": "PHYSIO"
+
+Case to handle
+
+13
+
+},
+{
+"definition": "Diagnostic",
+"abbreviation": "DIAG"
+},
+{
+"definition": "Maximum",
+"abbreviation": "MAX"
+},
+{
+"definition": "Room and Board",
+"abbreviation": "R&B"
+},
+{
+"definition": "Excluding",
+"abbreviation": "EXCL/EX"
+},
+{
+"definition": "Out Patient",
+"abbreviation": "OP"
+},
+{
+"definition": "Radiology",
+"abbreviation": "RAD/RADIO"
+},
+{
+"definition": "Hospital",
+"abbreviation": "HOSP/HOSPIT"
+}
+]
+}
+},
+"failure_reason": null,
+"policy_network": {
+"is_vip": "No",
+"payer_name": "Not Applicable",
+
+Case to handle
+
+14
+
+"sponsor_id": null,
+"start_date": "2025-04-18",
+"valid_upto": "2026-04-17",
+"all_networks": [
+{
+"network": "A.3",
+"visit_type": "IP (In Patient)",
+"network_code": "395",
+"network_value": "A.3",
+"matched_plan_name": null,
+"network_name_as_in_text": "IP Network : A.3"
+},
+{
+"network": "A.3",
+"visit_type": "OP (Out Patient)",
+"network_code": "395",
+"network_value": "A.3",
+"matched_plan_name": null,
+"network_name_as_in_text": "OP Network : A.3"
+}
+],
+"package_name": null,
+"is_gatekeeper": "Not Mentioned",
+"waiting_period": null,
+"policy_authority": "DHA",
+"policy_plan_name": "Hs6 A.3 Mhd Xs20% Incl Dental",
+"network_citations": [
+"IP Network : A.3",
+"OP Network : A.3"
+],
+"work_site_covered": "Could not determine",
+"policy_holder_name": null,
+"payer_name_citation": null,
+"gatekeeper_citations": null,
+"payer_name_as_in_text": "DASSETI FZ-LLC",
+"policy_authority_citation": "DHA ID : I010-000-122462579-02| Ax
+
+Case to handle
+
+15
+
+a IDs starting with 13 or 16, belong to DHA",
+"work_site_covered_citations": null
+},
+"screenshot_key": "https://s3.me-central-1.amazonaws.com/hrcm-b
+ucket-uae/INS010/784-2025-2801771-2_2025-08-26_05-23-27.png?X-Amz-Al
+gorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUCIJUPQ35ZV226U
+V%2F20250826%2Fme-central-1%2Fs3%2Faws4_request&X-Amz-Date=20
+250826T052327Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&XAmz-Signature=4067a06969d98b7709870b9029e39d1043818aa6314ebc3eb
+1cfc507d76a8dcf",
+"policy_holder_dob": "2025-02-12",
+"policy_holder_name": "Ryan Res Levin Levin Sibi",
+"referral_documents": [
+{
+"id": "member_eligibility_document",
+"tag": "Member Eligibility Document",
+"s3_url": "https://s3.me-central-1.amazonaws.com/hrcm-bucke
+t-uae/axa/referral/784-2025-2801771-2/26/08/2025%2009%3A23%20AM%
+20GST.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKI
+AUCIJUPQ35ZV226UV%2F20250826%2Fme-central-1%2Fs3%2Faws4_requ
+est&X-Amz-Date=20250826T052326Z&X-Amz-Expires=604800&X-Amz-Sig
+nedHeaders=host&X-Amz-Signature=b8459fd01f2335002fcd15088fadbeec7
+1f0716dd6eaebb38a7bb08de234a967"
+}
+],
+"copay_details_to_fill": [
+{
+"name": "Outpatient",
+"values_to_fill": {
+"LAB": {
+"copay": "20.0",
+"deductible": "0",
+"_copayAmount": "0",
+"_maxDeductible": "50.0",
+"_copayMaxAmount": "50.0",
+"should_set_copay": true,
+
+Case to handle
+
+16
+
+"_deductibleLegacy": "50.0"
+},
+"MEDICINES": {
+"copay": "20.0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "50.0",
+"should_set_copay": true,
+"_deductibleLegacy": "50.0"
+},
+"PROCEDURE": {
+"copay": "20.0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "50.0",
+"should_set_copay": true,
+"_deductibleLegacy": "50.0"
+},
+"RADIOLOGY": {
+"copay": "20.0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "50.0",
+"should_set_copay": true,
+"_deductibleLegacy": "50.0"
+},
+"CONSULTATION": {
+"copay": "20.0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "50.0",
+"should_set_copay": true,
+"_deductibleLegacy": "50.0"
+},
+"DENTAL CONSULTATION & PROCEDURE": {
+"copay": "10.0",
+
+Case to handle
+
+17
+
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "0",
+"should_set_copay": true,
+"_deductibleLegacy": "0"
+}
+},
+"primary_network": {
+"network": "A.3",
+"network_status": null,
+"matched_plan_name": null
+},
+"available_networks": [
+{
+"network": "A.3",
+"visit_type": "IP (In Patient)",
+"network_code": "395",
+"network_value": "A.3",
+"matched_plan_name": null,
+"network_name_as_in_text": "IP Network : A.3"
+},
+{
+"network": "A.3",
+"visit_type": "OP (Out Patient)",
+"network_code": "395",
+"network_value": "A.3",
+"matched_plan_name": null,
+"network_name_as_in_text": "OP Network : A.3"
+}
+],
+"has_multiple_networks": true
+},
+{
+"name": "Maternity",
+"values_to_fill": {
+"LAB": {
+
+Case to handle
+
+18
+
+"copay": "0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "0",
+"should_set_copay": true
+},
+"MEDICINES": {
+"copay": "0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "0",
+"should_set_copay": true
+},
+"PROCEDURE": {
+"copay": "0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "0",
+"should_set_copay": true
+},
+"RADIOLOGY": {
+"copay": "0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "0",
+"should_set_copay": true
+},
+"CONSULTATION": {
+"copay": "0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "0",
+"should_set_copay": true
+},
+"DENTAL CONSULTATION & PROCEDURE": {
+"copay": "0",
+
+Case to handle
+
+19
+
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "0",
+"should_set_copay": true
+}
+},
+"primary_network": {
+"network": "A.3",
+"network_status": null,
+"matched_plan_name": null
+},
+"available_networks": [
+{
+"network": "A.3",
+"visit_type": "IP (In Patient)",
+"network_code": "395",
+"network_value": "A.3",
+"matched_plan_name": null,
+"network_name_as_in_text": "IP Network : A.3"
+},
+{
+"network": "A.3",
+"visit_type": "OP (Out Patient)",
+"network_code": "395",
+"network_value": "A.3",
+"matched_plan_name": null,
+"network_name_as_in_text": "OP Network : A.3"
+}
+],
+"has_multiple_networks": true
+},
+{
+"name": "Specialization",
+"values_to_fill": {
+"LAB": {
+"copay": "20.0",
+
+Case to handle
+
+20
+
+"deductible": "0",
+"_copayAmount": "0",
+"_maxDeductible": "50.0",
+"_copayMaxAmount": "50.0",
+"should_set_copay": true,
+"_deductibleLegacy": "50.0"
+},
+"MEDICINES": {
+"copay": "20.0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "50.0",
+"should_set_copay": true,
+"_deductibleLegacy": "50.0"
+},
+"PROCEDURE": {
+"copay": "20.0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "50.0",
+"should_set_copay": true,
+"_deductibleLegacy": "50.0"
+},
+"RADIOLOGY": {
+"copay": "20.0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "50.0",
+"should_set_copay": true,
+"_deductibleLegacy": "50.0"
+},
+"CONSULTATION": {
+"copay": "20.0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "50.0",
+
+Case to handle
+
+21
+
+"should_set_copay": true,
+"_deductibleLegacy": "50.0"
+},
+"DENTAL CONSULTATION & PROCEDURE": {
+"copay": "10.0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "0",
+"should_set_copay": true,
+"_deductibleLegacy": "0"
+}
+},
+"primary_network": {
+"network": "A.3",
+"network_status": null,
+"matched_plan_name": null
+},
+"available_networks": [
+{
+"network": "A.3",
+"visit_type": "IP (In Patient)",
+"network_code": "395",
+"network_value": "A.3",
+"matched_plan_name": null,
+"network_name_as_in_text": "IP Network : A.3"
+},
+{
+"network": "A.3",
+"visit_type": "OP (Out Patient)",
+"network_code": "395",
+"network_value": "A.3",
+"matched_plan_name": null,
+"network_name_as_in_text": "OP Network : A.3"
+}
+],
+"has_multiple_networks": true
+
+Case to handle
+
+22
+
+},
+{
+"name": "Inpatient",
+"values_to_fill": {
+"LAB": {
+"copay": "0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "0",
+"should_set_copay": true
+},
+"MEDICINES": {
+"copay": "0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "0",
+"should_set_copay": true
+},
+"PROCEDURE": {
+"copay": "0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "0",
+"should_set_copay": true
+},
+"RADIOLOGY": {
+"copay": "0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "0",
+"should_set_copay": true
+},
+"CONSULTATION": {
+"copay": "0",
+"deductible": "0",
+"_copayAmount": "0",
+
+Case to handle
+
+23
+
+"_copayMaxAmount": "0",
+"should_set_copay": true
+},
+"DENTAL CONSULTATION & PROCEDURE": {
+"copay": "0",
+"deductible": "0",
+"_copayAmount": "0",
+"_copayMaxAmount": "0",
+"should_set_copay": true
+}
+},
+"primary_network": {
+"network": "A.3",
+"network_status": null,
+"matched_plan_name": null
+},
+"available_networks": [
+{
+"network": "A.3",
+"visit_type": "IP (In Patient)",
+"network_code": "395",
+"network_value": "A.3",
+"matched_plan_name": null,
+"network_name_as_in_text": "IP Network : A.3"
+},
+{
+"network": "A.3",
+"visit_type": "OP (Out Patient)",
+"network_code": "395",
+"network_value": "A.3",
+"matched_plan_name": null,
+"network_name_as_in_text": "OP Network : A.3"
+}
+],
+"has_multiple_networks": true
+}
+
+Case to handle
+
+24
+
+],
+"policy_holder_emirates_id": "784-2025-2801771-2",
+"was_identified_by_aggregator": false
+},
+"status": "found",
+"job_task_id": "b1a35a89-f198-4429-a21d-65d0b0862a43"
+},
+"task_id": "b1a35a89-f198-4429-a21d-65d0b0862a43",
+"status": "found",
+"clinic_id": "1a405a0a-f7a1-4ecc-86fb-ce84151ccc5b",
+"updated_at": "2025-08-26T05:23:53.269181",
+"tpa_name": null,
+"id": "5fa27e85-e823-427d-850f-0f4c279f468d",
+"user_id": null,
+"tenant_id": "mantys",
+"created_at": "2025-08-26T05:23:53.269181"
+}
+}
+
+Case to handle
+
+25
+
+

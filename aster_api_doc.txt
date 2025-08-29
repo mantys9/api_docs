@@ -1,0 +1,966 @@
+API Documentation for Aster
+Last updated on 14 Jul, 2025.
+
+Clinic IDs
+AHM - 2a82dd66-5137-454f-bdc9-07d7c2c6dbbf
+AHQ - 1a405a0a-f7a1-4ecc-86fb-ce84151ccc5b
+
+Key Fields
+Key fields to look at
+Network(s): data.policy_network.all_networks
+In this dictionary `network` key is the mapped value / card type
+
+Copay: data.copay_details_to_fill
+List of dictionaries
+Each dict has a name out of Outpatient, Maternity, Specialisation or
+Inpatient
+Sample value
+{
+"name": "Maternity",
+"values_to_fill": {
+"LAB": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+
+API Documentation for Aster
+
+1
+
+"MEDICINES": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+"PROCEDURE": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+"RADIOLOGY": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+"CONSULTATION": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+"DENTAL CONSULTATION & PROCEDURE": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+}
+},
+"primary_network": {
+"network": "WN",
+"network_status": null,
+"matched_plan_name": null
+},
+"available_networks": [
+{
+"network": "WN",
+"visit_type": "OP (Out Patient)",
+"network_value": "Workers Network",
+
+API Documentation for Aster
+
+2
+
+"matched_plan_name": null,
+"network_name_as_in_text": "Workers Network [Applicable Tarif
+f: Workers Network]"
+}
+],
+"has_multiple_networks": false
+},
+}
+
+member_id: data.patient_info.policy_primary_member_id
+
+Sample JSON
+{
+"tpa": "TPA004",
+"data": {
+"payer_id": "TPA004",
+"is_eligible": true,
+"job_task_id": "REDACTED-JOB-ID",
+"patient_info": {
+"patient_id_info": {
+"client_number": "REDACTED-CLIENT-NUMBER",
+"dha_member_id": null,
+"policy_number": "REDACTED-POLICY-NUMBER",
+"tpa_member_id": "REDACTED-TPA-MEMBER-ID",
+"reference_number": "REDACTED-REFERENCE-NUMBER"
+},
+"policy_holder_dob": "REDACTED-DOB",
+"policy_holder_name": "REDACTED-NAME",
+"patient_emirates_id": "REDACTED-EID",
+"policy_holder_phone": null,
+"policy_holder_gender": "Male",
+
+API Documentation for Aster
+
+3
+
+"policy_primary_member_id": "REDACTED-TPA-MEMBER-ID",
+"policy_holder_relationship": null,
+"policy_holder_date_of_birth": "REDACTED-DOB",
+"policy_primary_dha_member_id": "Not Available"
+},
+"copay_analysis": {
+"copay_details": [],
+"waiting_period": "Not Specified",
+"special_remarks": [
+"Pre-approval required for aggregate net amount 700.0 AED or above (ag
+gregate net amount excluding consultation)",
+"Pre-approval required for: Acute Drugs, C.T Scan, Child Vaccinations Mandatory, Chronic Drugs, Diabetic Consumables, Endoscopy, Immunomodul
+ators, M.R.I, PET Scan, Physiotherapy, Vision Test, Vitamins",
+"No referral required for specialist consultation"
+],
+"new_version_of_copay_analysis": {
+"benefits": [],
+"policy_info": {
+"waiting_period": "Not Specified",
+"policy_period_end": {
+"DD": 12,
+"MM": 6,
+"YYYY": 2026
+},
+"policy_jurisdiction": "DOH",
+"policy_period_start": {
+"DD": 13,
+"MM": 6,
+"YYYY": 2025
+},
+"beneficiary_start_date": null
+},
+"general_remarks": [
+"No referral required for specialist consultation"
+],
+
+API Documentation for Aster
+
+4
+
+"abbreviations_defined": null
+}
+},
+"failure_reason": null,
+"policy_network": {
+"is_vip": "Not Mentioned",
+"payer_name": "DUBAI INSURANCE COMPANY - INS005",
+"sponsor_id": "REDACTED-CLIENT-NUMBER",
+"start_date": "2025-06-13",
+"valid_upto": "2026-06-12",
+"all_networks": [
+{
+"network": "WN",
+"visit_type": "OP (Out Patient)",
+"network_value": "Workers Network",
+"matched_plan_name": null,
+"network_name_as_in_text": "Workers Network [Applicable Tariff: Work
+ers Network]"
+}
+],
+"package_name": null,
+"is_gatekeeper": "Not Mentioned",
+"waiting_period": null,
+"policy_authority": "DOH",
+"policy_plan_name": null,
+"work_site_covered": "Could not determine",
+"policy_holder_name": null,
+"payer_name_citation": "Client Number REDACTED",
+"gatekeeper_citations": "POST PROCESSING RULE: `Gatekeeper` not ment
+ioned",
+"payer_name_as_in_text": "at Dubai Insurance",
+"policy_authority_citation": "Policy Authority Health Authority Abu Dhabi",
+"work_site_covered_citations": null
+},
+"screenshot_key": "REDACTED-S3-URL",
+"warning_messages": [],
+
+API Documentation for Aster
+
+5
+
+"policy_holder_dob": "REDACTED-DOB",
+"policy_holder_name": "REDACTED-NAME",
+"referral_documents": [
+{
+"tag": "Member Eligibility - Main Page",
+"s3_url": "REDACTED-S3-URL"
+},
+{
+"tag": "Member Eligibility - Details Modal",
+"s3_url": "REDACTED-S3-URL"
+},
+{
+"id": "claim_form",
+"tag": "Consultation/Claim form",
+"s3_url": "REDACTED-S3-URL"
+}
+],
+"copay_details_to_fill": [
+{
+"name": "Outpatient",
+"values_to_fill": {
+"LAB": {
+"copay": "20.0",
+"deductible": "50.0",
+"_maxDeductible": "50.0",
+"should_set_copay": true
+},
+"MEDICINES": {
+"copay": "30.0",
+"deductible": "0",
+"should_set_copay": true
+},
+"PROCEDURE": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+
+API Documentation for Aster
+
+6
+
+},
+"RADIOLOGY": {
+"copay": "20.0",
+"deductible": "50.0",
+"should_set_copay": true
+},
+"CONSULTATION": {
+"copay": "0",
+"deductible": "20.0",
+"should_set_copay": false
+},
+"DENTAL CONSULTATION & PROCEDURE": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+}
+},
+"primary_network": {
+"network": "WN",
+"network_status": null,
+"matched_plan_name": null
+},
+"available_networks": [
+{
+"network": "WN",
+"visit_type": "OP (Out Patient)",
+"network_value": "Workers Network",
+"matched_plan_name": null,
+"network_name_as_in_text": "Workers Network [Applicable Tariff: Wor
+kers Network]"
+}
+],
+"has_multiple_networks": false
+},
+{
+"name": "Maternity",
+
+API Documentation for Aster
+
+7
+
+"values_to_fill": {
+"LAB": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+"MEDICINES": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+"PROCEDURE": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+"RADIOLOGY": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+"CONSULTATION": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+"DENTAL CONSULTATION & PROCEDURE": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+}
+},
+"primary_network": {
+"network": "WN",
+"network_status": null,
+"matched_plan_name": null
+
+API Documentation for Aster
+
+8
+
+},
+"available_networks": [
+{
+"network": "WN",
+"visit_type": "OP (Out Patient)",
+"network_value": "Workers Network",
+"matched_plan_name": null,
+"network_name_as_in_text": "Workers Network [Applicable Tariff: Wor
+kers Network]"
+}
+],
+"has_multiple_networks": false
+},
+{
+"name": "Specialization",
+"values_to_fill": {
+"LAB": {
+"copay": "20.0",
+"deductible": "50.0",
+"_maxDeductible": "50.0",
+"should_set_copay": true
+},
+"MEDICINES": {
+"copay": "30.0",
+"deductible": "0",
+"should_set_copay": true
+},
+"PROCEDURE": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+"RADIOLOGY": {
+"copay": "20.0",
+"deductible": "50.0",
+"should_set_copay": true
+
+API Documentation for Aster
+
+9
+
+},
+"CONSULTATION": {
+"copay": "0",
+"deductible": "10.0",
+"should_set_copay": false
+},
+"DENTAL CONSULTATION & PROCEDURE": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+}
+},
+"primary_network": {
+"network": "WN",
+"network_status": null,
+"matched_plan_name": null
+},
+"available_networks": [
+{
+"network": "WN",
+"visit_type": "OP (Out Patient)",
+"network_value": "Workers Network",
+"matched_plan_name": null,
+"network_name_as_in_text": "Workers Network [Applicable Tariff: Wor
+kers Network]"
+}
+],
+"has_multiple_networks": false
+},
+{
+"name": "Inpatient",
+"values_to_fill": {
+"LAB": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+
+API Documentation for Aster
+
+10
+
+},
+"MEDICINES": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+"PROCEDURE": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+"RADIOLOGY": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+"CONSULTATION": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+},
+"DENTAL CONSULTATION & PROCEDURE": {
+"copay": "0",
+"deductible": "0",
+"should_set_copay": true
+}
+},
+"primary_network": {
+"network": "WN",
+"network_status": null,
+"matched_plan_name": null
+},
+"available_networks": [
+{
+"network": "WN",
+"visit_type": "OP (Out Patient)",
+
+API Documentation for Aster
+
+11
+
+"network_value": "Workers Network",
+"matched_plan_name": null,
+"network_name_as_in_text": "Workers Network [Applicable Tariff: Wor
+kers Network]"
+}
+],
+"has_multiple_networks": false
+}
+],
+"policy_holder_emirates_id": "REDACTED-EID",
+"was_identified_by_aggregator": false
+},
+"status": "found",
+"job_task_id": "REDACTED-JOB-ID"
+}
+
+Payloads
+NAS
+Sample payload
+{
+"id_value": "124-1241-2412412-4",
+"phone": "971-5",
+"tpa_name": "TPA004",
+"id_type": "EMIRATESID",
+"visit_type": "PSYCHIATRY",
+"extra_args": {
+"title": "",
+
+API Documentation for Aster
+
+12
+
+"value": ""
+},
+"doctorName": "",
+"payerName": ""
+}
+
+Visit Types:
+[
+"OUTPATIENT",
+"INPATIENT",
+"DENTAL",
+"OPTICAL",
+"MATERNITY",
+"PSYCHIATRY",
+"WELLNESS"
+]
+
+*Maternity special case:
+Need to answer the following question in extra_args.value
+Is Inpatient treatment?
+{
+"id_value": "124-1241-2412412-4",
+"phone": "971-5",
+"tpa_name": "TPA004",
+"id_type": "EMIRATESID",
+"visit_type": "MATERNITY",
+"extra_args": {
+"title": "maternity_treatment",
+"value": "YES"
+},
+
+API Documentation for Aster
+
+13
+
+"doctorName": "",
+"payerName": ""
+}
+
+ID types:
+["EMIRATESID", "CARDNUMBER", "DHAMEMBERID"]
+
+Neuron
+Sample payload
+{
+"id_value": "124-1241-2412412-4",
+"phone": "971-5",
+"tpa_name": "TPA001",
+"id_type": "EMIRATESID",
+"visit_type": "PSYCHIATRY",
+"extra_args": {
+"title": "",
+"value": ""
+},
+"doctorName": "",
+"payerName": ""
+}
+
+Visit Types:
+[
+"OUTPATIENT",
+"INPATIENT",
+
+API Documentation for Aster
+
+14
+
+"DENTAL",
+"OPTICAL",
+"MATERNITY",
+"PSYCHIATRY",
+"WELLNESS"
+]
+
+*Maternity special case:
+Need to answer the following question in extra_args.value
+Is Inpatient treatment?
+{
+"id_value": "124-1241-2412412-4",
+"phone": "971-5",
+"tpa_name": "TPA004",
+"id_type": "EMIRATESID",
+"visit_type": "MATERNITY",
+"extra_args": {
+"title": "maternity_treatment",
+"value": "YES"
+},
+"doctorName": "",
+"payerName": ""
+}
+
+ID types:
+["EMIRATESID", "CARDNUMBER", "DHAMEMBERID"]
+
+Mednet
+
+API Documentation for Aster
+
+15
+
+{
+"id_value": "124-1241-2412412-4",
+"phone": "971-5",
+"tpa_name": "TPA036",
+"id_type": "EMIRATESID",
+"visit_type": "OUTPATIENT",
+"doctorName": "",
+"payerName": ""
+}
+
+Visit Types:
+["OUTPATIENT", "EMERGENCY"]
+
+ID Types:
+["EMIRATESID", "CARDNUMBER", "DHAMEMBERID"]
+
+Oman / Sukoon
+{
+"id_value": "124-1241-2412412-4",
+"phone": "971-5",
+"tpa_name": "INS012",
+"id_type": "EMIRATESID",
+"visit_type": "OUTPATIENT",
+"doctorName": "",
+
+API Documentation for Aster
+
+16
+
+"payerName": ""
+}
+
+Visit Types:
+no visit types can send the following
+"OUTPATIENT"
+
+ID types:
+["EMIRATESID", "CARDNUMBER"]
+
+Ecare
+Sample Payload
+{
+"id_value": "124-1241-2412412-4",
+"phone": "971-53-2423412",
+"tpa_name": "TPA029",
+"id_type": "EMIRATESID",
+"visit_type": "OUTPATIENT",
+"doctorName": "DHA-P-0197432",
+"payerName": ""
+}
+
+*note, doctorName is actually the ID for the doctor.
+
+API Documentation for Aster
+
+17
+
+Skip the doctorID if claim for is not needed.
+
+Visit Types:
+["OUTPATIENT", "INPATIENT"]
+
+ID Types:
+["EMIRATESID", "CARDNUMBER"]
+
+Nextcare
+Payload for policy number:
+{
+"id_value": "124-1241-2412412-4",
+"tpa_name": "TPA002",
+"id_type": "POLICYNUMBER",
+"visit_type": "CHRONIC_OUT",
+"name": "RANEESH",
+"payerName": "Adamjee Ins Co Ltd"
+}
+*name and payerName only needed in case of policy number
+
+Visit Types:
+[
+"INPATIENT",
+
+API Documentation for Aster
+
+18
+
+"OUTPATIENT",
+"DENTAL",
+"LIFE",
+"OPTICAL",
+"TRAVEL_INSURANCE",
+"CHRONIC_OUT",
+"EMERGENCY",
+"MATERNITY"
+]
+
+VISIT TYPES:
+[
+{ label: "Optical", value: "OPTICAL" },
+{ label: "Psychiatry", value: "PSYCHIATRY" }
+]
+
+ID types:
+["EMIRATESID", "CARDNUMBER", "DHAMEMBERID", "POLICYNUMBER"]
+
+Nextcare payer options
+[
+"Abu Dhabi National Insurance Company - UAE",
+"Abu Dhabi National Takaful Company",
+"Adamjee Ins Co Ltd",
+"Al Ahlia Insurance Co.",
+
+API Documentation for Aster
+
+19
+
+"AL BARAMI GROUP - Oman",
+"Al Buhaira National Ins. - Repatriation / Travel",
+"Al Buhaira National Ins.- AGA Emergency Evacuation",
+"Al Buhairah National Insurance Company",
+"Al Buhairah National Insurance Company (New)",
+"Al Dhafra Insurance Company PSC",
+"Al Fujairah National Insurance Company PJSC",
+"Al Hilal Takaful Co. - Travel",
+"Al Ittihad Al Watani GIC",
+"Al Ittihad Al Watani GIC - Abu Dhabi",
+"AL KHALEEJ TAKAFUL INSURANCE",
+"Al Madina Insurance Company SAOG - Oman",
+"Al Nisr Al Arab Insurance - Travel Mondial",
+"Al Sagr National Ins. Co.",
+"Al Sagr Saudi - KSA",
+"Al Wathba National Insurance - ALLIANZ Individual",
+"Al Wathba National Insurance Co.",
+"ALEXION",
+"ALIG - Lebanon",
+"AlKoot Insurance & Reinsurance Company - Qatar",
+"Alliance Insurance Co. - B2C Travel Mondial",
+"Alliance Insurance Company",
+"Alliance Insurance Company / GLIC Products",
+"Alliance Insurance Company / Henner Products",
+"Alliance Insurance Company PSC- Travel Mondial",
+"Alliance Lamprell PLC",
+"Allianz Care (Morocco)",
+"Allianz Egypt Travel Mondial",
+"Allianz Global Assistance/Mondial Assistance",
+"Allianz Global Corporate & Specialty SA-Travel",
+"Allianz Insurance Company (GH) Ltd.",
+"Allianz Insurance Company of Kenya Ltd.",
+"Allianz Maroc",
+"Allianz Nigeria Insurance PLC",
+"Allianz Saudi Fransi - Travel Mondial",
+"Allianz SNA (Lebanon) Travel Mondial",
+
+API Documentation for Aster
+
+20
+
+"ALLIANZ TIRIAC Romania",
+"AMAN TAKAFUL - Kuwait",
+"AMANA CONTRACTING GROUP",
+"AMAN-NGI",
+"American Home Assurance Company (AIG)",
+"Arabia - Takaful Emarat",
+"Arabia Falcon Insurance - Oman",
+"Arabia Insurance Co - Bahrain",
+"Arabia Insurance Co - Kuwait",
+"Arabia Insurance Co - Oman",
+"Arabia Insurance Co - Qatar",
+"Arabia Insurance Co. - Travel",
+"Arabia Insurance Co. UAE",
+"Arope Insurance (Lebanon)",
+"ASSURANCES BIAT",
+"B2C Lebanon (Allianz SNA)",
+"Bahrain Kuwait Insurance Co. - BH",
+"BAHRAIN NATIONAL LIFE ASSURANCE COMPANY CO. B.S.C.",
+"Bank Dhofar SAOG",
+"Bank Sohar SAOG - Oman",
+"BDAE-Union Payer",
+"BKIC Kuwait - Travel Mondial",
+"BNA ASSURANCES",
+"Car Trawler",
+"Civil Service Oman",
+"COMAR",
+"Cumberland KSA",
+"Dar Al Takaful PJSC",
+"Database Migration Testing (11-05-24)",
+"DHOFAR INSURANCE CO Oman",
+"Disease Management Program",
+"Doha Insurance Group",
+"Doha Insurance Group - Travel",
+"Doha Takaful",
+"DP World",
+"Dry Docks World - Dubai (LLC)",
+
+API Documentation for Aster
+
+21
+
+"Dubai Digital Authority",
+"Dubai Future Foundation (SFS)",
+"Dubai Government - TEC",
+"Dubai Insurance",
+"Dubai Insurance Company / Hauteville DCI Products",
+"Dubai Insurance Company / Hauteville DIC Products",
+"Dubai Insurance Company / William Russell Products",
+"Dubai Islamic Economy Development Centre",
+"Dubai Islamic Insurance & Reinsurance",
+"Dubai Islamic Insurance & Reinsurance/GBG Products",
+"Dubai National Insurance and Reinsurance Co.(P.S.C.)",
+"Dubai Properties",
+"Dubai Taxi Corporation",
+"El Amana Takaful",
+"El Amana Takaful",
+"El Amana Takaful",
+"Embassy of Australia",
+"Emirates Airline",
+"Emirates Insurance Company",
+"EmiratesSUB1",
+"ENAYA",
+"ENAYA Insurance Co - Kuwait",
+"FEDERAL COMPETITIVENESS & STATISTICS CENTRE",
+"Federal Youth Authority",
+"Fidelity Insurance - Travel Mondial",
+"FONIS",
+"Freedom Health Insurance",
+"GAT Assurances",
+"Gateway International Assurance (Arabia)",
+"GBG (KWT)",
+"GENERAL SECRETARIAT OF THE CABINET",
+"General Takaful Company - Qatar",
+"Ghazal Insurance Company K.S.C.C",
+"Global Medical Solutions - GMS",
+"GOP - Non NEXtCARE Members",
+"GOVERNMENT EXPERIENCE EXCHANGE OFFICE- GEEO",
+
+API Documentation for Aster
+
+22
+
+"Government Media Office (SFS)",
+"Gulf Life Insurance Company - Kuwait",
+"Hauteville Insurance Company Ltd",
+"HAYAH INSURANCE COMPANY P.J.S.C",
+"Iran Insurance Co.",
+"Islamic Arab Insurance Co. SALAMA",
+"Islamic Arab Insurance Co. SALAMA / Clover Product",
+"Jordan Insurance",
+"Jubilee Allianz General Insurance Company Limited (Uganda)",
+"JUBILEE HEALTH INSURANCE LIMITED (TEST)",
+"JUMEIRAH GOLF ESTATES (L.L.C)",
+"Jumeirah International LLC",
+"KLM",
+"Kuwait Airways",
+"LAFARGE",
+"Leadway Assurance-Travel Mondial",
+"LETS TANGO",
+"LLOYD Assurances",
+"LMV/ Societe Generale Morocco",
+"MAC / Banque Populaire",
+"Majid Al Futtaim",
+"Manazil Real Estate",
+"MCMA-MAMDA",
+"MEDGULF - Bahrain",
+"MEDGULF - KSA",
+"MEDGULF - LEBANON",
+"MEDGULF - UAE",
+"Medgulf Takaful B.S.C. (c) BAH",
+"Medgulf Takaful Qatar",
+"Methaq Takaful Insurance Company",
+"MetLife",
+"Ministry of Cabinet Affairs- MOCA",
+"Mondial/Aman",
+"Muscat Insurance Company SAOG",
+"Muscat Insurance Company SAOG (AQ)",
+"NasAir",
+
+API Documentation for Aster
+
+23
+
+"NATIONAL GENERAL INSURANCE CO (P.J.S.C)",
+"National General Insurance Co/Hansemerkur Products",
+"National Life & General Insurance Co.Abu Dhabi Br.",
+"National Life & General Insurance Company SAOG Dubai Branch",
+"National Takaful Company (Watania) P.J.S.C.",
+"Noor Takaful - Dar Al Takaful",
+"Noor Takaful - Medgulf Takaful (Bahrain)",
+"Noor Takaful Family PJSC / DNRD Products",
+"Noor Takaful Travel - Mondial",
+"Oman Air",
+"Oman Drydock Company LLC",
+"Oman Insurance Company P.S.C. - Qatar",
+"Oman Insurance Company PSC",
+"Oman Qatar Insurance Company - Oman",
+"Oman United Insurance Co. - Oman",
+"Oman United Insurance Company P.S.C. - Travel Mondial",
+"Orange Telecom",
+"Orient - ABNIC",
+"Orient - DNIRC",
+"Orient - Gargash",
+"Orient - Henner",
+"Orient - Mediclinic Group",
+"Orient - Noor Takaful",
+"Orient - Salama",
+"Orient - SCB",
+"Orient - SCB (INDIVIDUAL)",
+"Orient - SEIB",
+"Orient Insurance PJSC",
+"Orient Insurance PJSC - Bahrain",
+"Orient Insurance PJSC - Bahrain (AQ)",
+"Orient Insurance PJSC - Oman",
+"Orient Insurance PJSC - UAE (LCW)",
+"Orient Insurance PJSC (EK Travel)",
+"Orient Insurance PJSC Worldwide",
+"Orient Insurance PJSC Worldwide (Special)",
+"Orient Insurance PJSC Worldwide E-Rx",
+
+API Documentation for Aster
+
+24
+
+"Orient Takaful P.J.S.C.",
+"Other Insurance Companies",
+"Prime Ministers Office",
+"Public Establishment for Industrial Estate",
+"Q Life & Medical Insurance Company LLC",
+"Qatar General Insurance & Reinsurance Co. (S.A.Q)",
+"Qatar General Insurance and Reinsurance Co - Qatar",
+"Qatar Insurance Company",
+"Qatar Islamic Insurance Company",
+"Qatar Takaful Co",
+"Ras Al Khaima National Insurance Co. (P.S.C.) - Dubai Br.",
+"Roads & Transport Authority",
+"Royal Jordanian",
+"Royale Marocaine d'Assurances - Al Watanya",
+"SAADA - Dubai Health Authority-Government of Dubai",
+"SAHAM ASSURANCE",
+"Salama - Takaful Oman",
+"SANAD INSURANCE - MOROCCO",
+"SEIB Insurance & Reinsurance Company",
+"SGT/ ITHMAAR GROUP BAH",
+"Sharq Insurance LLC",
+"SNIC INSURANCE B.S.C.(C)",
+"Social Solidarity Fund",
+"Solidarity / MOH Plan",
+"SOLIDARITY BAHRAIN B.S.C",
+"Solidarity BH-Non Bahrain.",
+"Special Olympics UAE",
+"STANDARD CHARTERED BANK",
+"STAR Assurances",
+"Sukoon Insurance (Oman Branch)",
+"Sukoon Takaful PJSC",
+"Takaful Emarat - NLGIC",
+"Takaful Emarat - UNION",
+"Takaful Emarat Insurance PSC",
+"Takaful Emarat Insurance PSC / Al Rawabi Products",
+"Takaful Emarat Insurance PSC / AMANA Products",
+
+API Documentation for Aster
+
+25
+
+"Takaful Emarat Insurance PSC / MAF Products",
+"Takaful Emarat Insurance PSC / SAGG Products",
+"Takaful International Co. - Bahrain",
+"Takaful International Co. BSC - Qatar",
+"Takaful Oman",
+"Takaful Oman - Electricity Holding Co. SAOC (SFS)",
+"Talent Connection",
+"Tazur Company B.S.C.",
+"Tazur Takaful Insurance Company - Kuwait",
+"TEST PAYER (DO NOT USE)",
+"The Executive Office",
+"The New India Assurance Co Oman",
+"THE NEW INDIA ASSURANCE COMPANY LIMITED UAE",
+"Ticket Master",
+"Tokio Marine & Nichido Fire Insurance Company Ltd.",
+"Total Scholastic Solutions - TSS",
+"Union Insurance Company P.J.S.C.",
+"Union Insurance Company P.J.S.C. / Dar Al Takaful",
+"Union Insurance Company P.S.C. / AMAN Products",
+"United Commercial Assurance (UCA) Lebanon - MOTORS",
+"United Commercial Assurance (UCA) Lebanon-MEDICAL",
+"United Fidelity Insurance Company",
+"United Insurance Jordan - Travel Mondial",
+"Vasco UAE",
+"Vision Insurance Company Oman",
+"Warba Insurance & Reinsurance Company (K.S.C.P)-Kuwait",
+"Watania Takaful",
+"Wattayah Motors LLC",
+"Yas Takaful P.J.S.C",
+"Zabeel Equestrian Office (SFS)",
+"Zubair Automotive Group - Oman",
+"Zurich Insurance M.E. S.A.L."
+];
+
+API Documentation for Aster
+
+26
+
+

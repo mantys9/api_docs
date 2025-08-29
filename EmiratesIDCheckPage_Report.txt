@@ -1,0 +1,142 @@
+# Report on Conditional UI Logic in EmiratesIDCheckPage.tsx (Updated)
+
+This document provides a comprehensive analysis of the dynamic user interface (UI) components within the `EmiratesIDCheckPage.tsx` file. The visibility, options, and requirements of various form fields change based on the selected "Insurance Provider" (TPA/Payer), the selected "ID Type," and other contextual data like the user's organization or clinic.
+
+This report reflects the latest updates, including a major integration with the **Medcare** system.
+
+---
+
+## 1. Medcare Organization Integration (New Feature)
+
+A significant new set of features has been added specifically for users from the "medcare" organization.
+
+-   **Automatic Form Prefill**: For existing Medcare patients, the page listens for system events and automatically pre-fills the following fields:
+    -   **Insurance Provider**: It intelligently matches the patient's insurance name from Medcare to the correct TPA/Payer in the dropdown.
+    -   **ID Type & Number**: It fills the patient's card number and automatically selects the correct ID Type (e.g., "Emirates ID", "DHA Member ID", or "Card Number") based on the number's format.
+
+-   **Loading Indicator**: A "Loading Payor Details..." message is displayed while the page is waiting for the existing patient's data from the Medcare system.
+
+-   **Automatic Form Reset**: If a new patient is detected within the Medcare system, the entire form is automatically cleared and reset to its default state to prevent data carryover.
+
+---
+
+## 2. ID Type Field (`<Select id="idType">`)
+
+The options available in the "ID Type" dropdown are dynamically adjusted based on the selected Insurance Provider (`options` state).
+
+-   **Default Options**: A base set of ID types is always present (`ID_TYPES_OPTIONS`).
+
+-   **Conditional Additions**:
+    -   If Provider is **TPA010**: Adds "DHA Member ID" and "Passport".
+    -   If Provider is **TPA037**: Adds "DHA Member ID" and "Policy Number".
+    -   If Provider is **TPA002**: Adds "DHA Member ID" and "Policy Number".
+    -   If Provider is one of **TPA001, TPA004, TPA036, INS038, INS017, INS010**: Adds "DHA Member ID".
+
+---
+
+## 3. Visit Type Field (`<Select id="visitType">`)
+
+The entire list of options for the "Visit Type" dropdown is dependent on the selected Insurance Provider. The component looks up the available visit types from the `VISIT_TYPES` constant. If a provider has no defined visit types, the dropdown is disabled.
+
+---
+
+## 4. Name Input Field (`<input id="name">`)
+
+The "Name" input field is displayed under three distinct conditions:
+
+1.  **For specific providers when not using Emirates ID**:
+    -   **Condition**: The selected provider is one of **TPA003, BOTH, RIYATI, DHPO** AND the selected ID Type is **not** "Emirates ID".
+    -   **Action**: The "Name" field is shown and marked as required.
+
+2.  **For a specific provider**:
+    -   **Condition**: The selected provider is **TPA016**.
+    -   **Action**: The "Name" field is shown and marked as required.
+
+3.  **For TPA002 with Policy Number**:
+    -   **Condition**: The selected provider is **TPA002** AND the selected ID Type is "Policy Number".
+    -   **Action**: The "Name" field is shown alongside the "Payer Name" dropdown.
+
+---
+
+## 5. Doctor's Name Dropdown (`<Select>`) (Updated Logic)
+
+A "Doctor's Name" dropdown is shown for specific providers, but only when the user belongs to a certain organization.
+
+-   **Condition**:
+    -   The selected provider is **INS026, INS026__MOH, TPA029, BOTH, DHPO, or RIYATI**.
+    -   **AND** the user's `selectedOrganizationID` from `localStorage` is one of: "kims", "advanced-care", "ihh", "novitas", "mantys", "al-shifa", or **"medcare"**.
+-   **Action**: A dropdown to select a doctor's name is displayed and is marked as required. The list of doctors is also dynamic based on the organization.
+
+---
+
+## 6. Phone Number Field (`<input id="phoneNumber">`)
+
+This field is shown only for a single provider.
+
+-   **Condition**: The selected provider is **TPA029**.
+-   **Action**: A "Phone Number" input field is displayed.
+
+---
+
+## 7. Service Type Dropdown (`<Select id="serviceType">`)
+
+This dropdown is shown only for a single provider.
+
+-   **Condition**: The selected provider is **TPA029**.
+-   **Action**: A "Service Type" dropdown with options like "Consultation GP" and "Consultation Specialist" is displayed.
+
+---
+
+## 8. Referral Code Field (`<input id="referralCode">`)
+
+This optional field is shown only for a single provider.
+
+-   **Condition**: The selected provider is **TPA026**.
+-   **Action**: A "Referral Code" input field is displayed.
+
+---
+
+## 9. POD (Proof of Delivery) Fields
+
+These fields are displayed for a specific provider at a specific clinic location.
+
+-   **Condition**:
+    -   The selected provider is **INS026**.
+    -   **AND** the `selectedClinicID` from `localStorage` is "9a0e72c5-af84-455f-b1a3-9f869f8f13a9" (Truedoc Abu Dhabi).
+-   **Action**:
+    -   A "POD?" dropdown (Yes/No) is displayed.
+    -   If "Yes" is selected, an additional "POD ID" input field appears and is marked as required.
+
+---
+
+## 10. Payer Name Dropdown (`<Select id="payerName">`)
+
+This dropdown is displayed to specify a payer when using a policy number with TPA002.
+
+-   **Condition**:
+    -   The selected provider is **TPA002**.
+    -   **AND** the selected ID Type is "Policy Number".
+-   **Action**: A "Payer Name" dropdown is displayed and is marked as required.
+
+---
+
+## 11. Maternity-Specific Field (`<Select id="extraArgs">`)
+
+An additional required field is shown for maternity-related visits with specific providers.
+
+-   **Condition**:
+    -   The selected "Visit Type" is "MATERNITY".
+    -   **AND** the selected provider is **TPA004** or **TPA001**.
+-   **Action**: An extra dropdown (e.g., for "Trimester") is displayed with options relevant to the maternity visit.
+
+---
+
+## 12. Special Message Display
+
+A special message or alert can be displayed at the bottom of the form.
+
+-   **Condition**: The `specialMessage` variable, derived from the selected insurance provider configuration, contains content.
+-   **Action**: An alert box is rendered to show important provider-specific information or instructions to the user.
+
+---
+**End of Report**
